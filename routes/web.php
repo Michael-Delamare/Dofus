@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServeurController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,9 @@ Route::get('/', function () {
 
 Route::get('/Accueil', function () {
     return view('dashboard');
-});
+})->name('accueil');
+
+Route::resource('/serveur', ServeurController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

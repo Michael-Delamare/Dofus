@@ -13,13 +13,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ url('/Accueil') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('accueil') }}" :active="request()->routeIs('dashboard')">
                         {{-- {{ __('Dashboard') }} --}}
                         Accueil
                     </x-jet-nav-link>
                     <x-jet-nav-link href="https://dofus-map.com/hunt" target="_blank">Chasse</x-jet-nav-link>
                     <x-jet-nav-link href="https://www.dofusbook.net" target="_blank">DofusBook</x-jet-nav-link>
-                    <x-jet-nav-link href="https://dofus-portals.fr/portails/59" target="_blank">Portails</x-jet-nav-link>
+                    <x-jet-nav-link href=" {{ route('serveur.index')}} ">Portails</x-jet-nav-link>
                     @guest
                     <x-jet-nav-link href=" {{ route('register') }} ">Inscription</x-jet-nav-link>
                     <x-jet-nav-link href=" {{ route('login') }} ">Connexion</x-jet-nav-link>

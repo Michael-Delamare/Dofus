@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Models\Serveur;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,10 @@ class ServeurController extends Controller
      */
     public function index()
     {
-        //
+        $serveurs = Serveur::all();
+        return view('portails/portails-serveur',[
+            'serveurs'=>$serveurs,
+        ]);
     }
 
     /**
