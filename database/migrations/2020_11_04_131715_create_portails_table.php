@@ -17,10 +17,6 @@ class CreatePortailsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('image');
-            $table->string('position');
-            $table->integer('utilisation')->nullable();
-            $table->foreignId('users_id')->nullable()->constrained();
-            $table->foreignId('serveur_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

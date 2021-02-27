@@ -23,6 +23,8 @@ Route::get('/Accueil', function () {
 })->name('accueil');
 
 Route::resource('/serveur', ServeurController::class);
+Route::resource('/portail', App\Http\Controllers\PortailController::class);
+Route::resource('/info_portail', App\Http\Controllers\InformationPortailController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

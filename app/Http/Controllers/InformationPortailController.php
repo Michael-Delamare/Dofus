@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use App\Models\Serveur;
-use App\Models\Portail;
+use App\Models\Information_portail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class PortailController extends Controller
+class InformationPortailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,7 @@ class PortailController extends Controller
      */
     public function index()
     {
-        $portails = Portail::all();
-        return view('portails/portails',[
-            'portails'=>$portails,
-        ]);
+        //
     }
 
     /**
@@ -45,10 +42,10 @@ class PortailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Portail  $portail
+     * @param  \App\Models\Information_portail  $information_portail
      * @return \Illuminate\Http\Response
      */
-    public function show(Portail $portail)
+    public function show(Information_portail $information_portail)
     {
         //
     }
@@ -56,33 +53,39 @@ class PortailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Portail  $portail
+     * @param  \App\Models\Information_portail  $information_portail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Portail $portail)
+    public function edit($id)
     {
-        //
+        $information_portail = Information_portail::find($id);
+        return view('portails/modif_info_portail',['information_portail'=>$information_portail]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portail  $portail
+     * @param  \App\Models\Information_portail  $information_portail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Portail $portail)
+    public function update(Request $request, $id)
     {
-        //
+        $information_portail = Information_portail::findOrFail($id);
+        $information_portail->position = $request->position;
+        $information_portail->utilisation = $request->utilisation;
+        $information_portail->users_id = Auth::user()->id;
+        $information_portail->save();
+        return redirect('/serveur')->with('success', 'Portail modifié !');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Portail  $portail
+     * @param  \App\Models\Information_portail  $information_portail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Portail $portail)
+    public function destroy(Information_portail $information_portail)
     {
         //
     }

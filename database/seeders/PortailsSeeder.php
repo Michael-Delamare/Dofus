@@ -16,22 +16,18 @@ class PortailsSeeder extends Seeder
         Portail::create([
             'nom'=>'Ecaflipus',
             'image'=>'image/Ecaflipus.png',
-            'position'=>'Position inconnue'
         ]);
         Portail::create([
             'nom'=>'Srambad',
             'image'=>'image/Srambad.png',
-            'position'=>'Position inconnue'
         ]);
         Portail::create([
             'nom'=>'Enutrosor',
             'image'=>'image/enu.png',
-            'position'=>'Position inconnue'
         ]);
         Portail::create([
             'nom'=>'Xelorium',
             'image'=>'image/xel.png',
-            'position'=>'Position inconnue'
         ]);
 
     }

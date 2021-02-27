@@ -9,14 +9,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @foreach ($serveurs as $serveur)
-                <a class="btn btn-danger m-5" href="#"><div class="cardMod card-1">
-
-                        <img class="" style="max-width: 100%;" src="{{asset('image/'.$serveur->image)}}" alt="image serveur">
+                <a class="" href=" {{route('serveur.show',['serveur'=>$serveur])}} ">
+                    <div class="cardMod card-1">
+                        <img class="" style="max-width: 100%;" src="{{asset('image/'.$serveur->image)}}"
+                            alt="image serveur">
                         <div class="border border-info">
-                        <p class="text-center">{{$serveur->nom}}</p>
+                            <p class="text-center">{{$serveur->nom}}</p>
                         </div>
-
-                </div></a>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>
